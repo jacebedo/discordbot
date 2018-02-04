@@ -1,8 +1,8 @@
 const discord = require('discord.js');
 const client = new discord.Client();
 const userCommand = require('./classes/userCommand.js');
-const verification = require('./functions/verification.js')
-
+const verification = require('./functions/verification.js');
+const parse = require('./functions/parse.js');
 
 
 client.on("ready",() =>{
@@ -11,9 +11,10 @@ client.on("ready",() =>{
 
 client.on("message",(message) => {
   if (verification.isValidCommand(message.content)) {
-    var command = userCommand.convertToCommand(message.content);
-
+    var clientRequest = parse.convertMessageToRequest(message.content);
+    console.log(clientRequest);
   } else {
+    // Do something
     console.log("false");
   }
 });

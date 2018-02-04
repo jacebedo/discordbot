@@ -1,22 +1,23 @@
-exports.userCommand = (command,params) => {
+/*
+ * This object represents a user command that is entered by a user that has
+ * the prototypebot installed.
+ *
+ */
+
+module.exports = function(command){
   this.command = command;
   this.params = [];
-  if (ifParametersExist(params)) {
-    this.params.push(params);
-  }
+  this.addParameters = (parameterArray) => {
+    for (item of parameterArray) this.params.push(item);
+  };
 };
 
-/* */
+
+/* Internal functions */
+
 function ifParametersExist(params){
   if (params == undefined) {
     return false;
   }
   return true;
-}
-
-
-exports.convertToCommand = function(message) {
-  console.assert(message.indexOf('./') == 0);
-  var suffix = message.substring(2);
-  console.log(suffix);
 }
