@@ -7,7 +7,7 @@ const lookup = require('./functions/lookup.js');
 
 client.on("ready",() =>{
   console.log("LMG, MOUNTED AND LOADED!");
-  client.setActivity("with some nice coding mechanisms");
+  client.user.setActivity('with my struggling college life')
 });
 
 client.on("message",(message) => {
