@@ -1,5 +1,11 @@
 var userCommand = require('../classes/userCommand.js');
 
+
+/*
+ * This function takes a message and converts it into a 'userCommand' object, which is composed of:
+ *  a 'command'  member and an array of 'parameters'
+ *
+ */
 exports.convertMessageToRequest = function(message) {
   var commandTokens = tokenizeMessage(message);
   var requestFunction = commandTokens.shift();
