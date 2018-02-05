@@ -6,9 +6,9 @@
 
 module.exports = function(command){
   this.command = command;
-  this.params = [];
+  this.parameters = [];
   this.addParameters = (parameterArray) => {
-    for (item of parameterArray) this.params.push(item);
+    for (item of parameterArray) this.parameters.push(item);
   };
 };
 

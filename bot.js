@@ -3,7 +3,7 @@ const client = new discord.Client();
 const userCommand = require('./classes/userCommand.js');
 const verification = require('./functions/verification.js');
 const parse = require('./functions/parse.js');
-
+const lookup = require('./functions/lookup.js');
 
 client.on("ready",() =>{
   console.log("LMG, MOUNTED AND LOADED!");
@@ -12,10 +12,9 @@ client.on("ready",() =>{
 client.on("message",(message) => {
   if (verification.isValidCommand(message.content)) {
     var clientRequest = parse.convertMessageToRequest(message.content);
-    console.log(clientRequest);
+    lookup.Command(clientRequest,message.channel,client);
   } else {
     // Do something
-    console.log("false");
   }
 });
 
